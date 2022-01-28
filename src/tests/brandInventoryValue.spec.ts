@@ -23,4 +23,14 @@ describe("Brand inventory value", () => {
         expect(value).toEqual(0);
       });
   });
+	describe("when a brand is chosen", () => {
+    it("returns the number of products with a brand id that matches the chosen brand", () => {
+      // ACT
+      const value = brandInventoryValue([], testBrand);
+
+      // ASSERT
+      expect(value).toEqual(0);
+    });
+    
+  });
 });
