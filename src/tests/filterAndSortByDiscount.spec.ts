@@ -103,15 +103,28 @@ describe("Filter and sort by discount", () => {
       type: ProductType.FOOD,
     };
 
+		const additionalProdWithDiscount: Product = {
+      id: "test-product-with-discount",
+      name: "Bagel",
+      net_price: 10,
+      discount: {
+        isEnabled: true,
+        percentage: 20,
+      },
+      brand: testBrand,
+      type: ProductType.FOOD,
+    };
+
     it("returns the discounted products in the correct order", () => {
       // ACT
       const productList = filterAndSortByDiscount([
         prodWithDiscount,
         anotherProdWithDiscount,
+				additionalProdWithDiscount
       ]);
 
       // ASSERT
-      expect(productList).toEqual([anotherProdWithDiscount, prodWithDiscount]);
+      expect(productList).toEqual([anotherProdWithDiscount, prodWithDiscount, additionalProdWithDiscount]);
     });
   });
 });

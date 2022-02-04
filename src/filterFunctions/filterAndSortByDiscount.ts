@@ -9,5 +9,12 @@ import { Product } from "../types";
  * @returns {Product[]} the list of filtered products
  */
 export default function filterAndSortByDiscount(productList:Product[]):Product[]{
-    return productList
+	if (productList.length === 0) return []
+	const returnList = []
+	for(let i = 0; i < productList.length; i++) {
+		if (productList[i].discount.percentage > 0) {
+			returnList.push(productList[i])
+		}
+	}
+  return returnList.sort((a, b) => a.discount.percentage - b.discount.percentage)
 }
