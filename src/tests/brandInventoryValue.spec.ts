@@ -15,11 +15,13 @@ describe("Brand inventory value", () => {
       // ASSERT
       expect(value).toEqual(120);
     });
-    it("returns the correct brand of the item", () => {
-        const value = brandInventoryValue([], testBrand);
-        expect(value).toEqual(0);
-      });
   });
+	describe("when inventory contains 0 items", () => {
+		it("returns zero", () => {
+			const value = brandInventoryValue([], testBrand);
+			expect(value).toEqual(0);
+		})
+	})
 	describe("when a brand is chosen", () => {
     it("returns zero if there are no products with a brand id that matches the chosen brand", () => {
       const value = brandInventoryValue([muffin, bagelsDiscounted], testBrand);
